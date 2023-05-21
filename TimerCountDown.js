@@ -12,15 +12,16 @@ window.addEventListener('keydown', function (event) {
 
 function startNewTimer() {
     let count = 270;  // 4 minutes and 30 seconds in total, in seconds
+    timerId++;
 
     let timer = setInterval(() => {
         count--;
-        console.log(`Timer: ${Math.floor(count/60)} minutes and ${count%60} seconds`);
+        console.log(`Timer ID ${timerId}: ${Math.floor(count/60)} minutes and ${count%60} seconds left`);
 
         // If time's up, remove the timer
         if (count <= 0) {
             clearInterval(timer);
-            console.log("Time's up!");
+            console.log(`Timer ID ${timerId}: Time's up!`);
             timers.delete(timer);
         }
     }, 1000);
